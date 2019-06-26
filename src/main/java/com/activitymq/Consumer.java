@@ -59,10 +59,21 @@ public class Consumer {
         messageConsumer.setMessageListener(new MessageListener() {
             @Override
             public void onMessage(Message message) {
+                //TextMessage
                 if (message != null && message instanceof TextMessage) {
                     TextMessage textMessage = (TextMessage) message;
                     try {
-                        System.out.println("*******消费者监听模式:" + textMessage.getText());
+                        System.out.println("*******消费者监听模式接收string:" + textMessage.getText());
+                        System.out.println("*******消费者接收到消息属性:" + textMessage.getStringProperty("userName"));//读取属性
+                    } catch (JMSException e) {
+                        e.printStackTrace();
+                    }
+                }
+                //MapMessage
+                if (message != null && message instanceof MapMessage) {
+                    MapMessage mapMessage = (MapMessage) message;
+                    try {
+                        System.out.println("*******消费者监听模式接收map:" + mapMessage.getString("key1"));
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
@@ -88,8 +99,8 @@ public class Consumer {
          *   1,4
          *   2,5
          *   3,6
-         *
          *   一个一个轮询分配
+         * 4.MQ挂了，那么消息的持久化和丢失情况如何？
          */
     }
 }

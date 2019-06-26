@@ -34,12 +34,19 @@ public class Produce {
 
         //5 创建消息生产者
         MessageProducer messageProducer = session.createProducer(queue);
+        messageProducer.setDeliveryMode(DeliveryMode.PERSISTENT);//设置是否持久化,默认持久化
         //6 通过messageProducer生产3条消息发送到MQ队列里面
-        for (int i = 1; i <= 6; i++) {
-            //7 创建消息
+        for (int i = 1; i <= 3; i++) {
+            //7 创建TextMessage消息
             TextMessage textMessage = session.createTextMessage("msg---" + i);
+            textMessage.setStringProperty("userName", "name" + i);//消息属性
             //8 通过messageProducer发送给mq
             messageProducer.send(textMessage);
+
+            //创建mqp消息
+            MapMessage mapMessage = session.createMapMessage();
+            mapMessage.setString("key1", "map的Value---------" + i);
+            messageProducer.send(mapMessage);
         }
         //9 关闭连接
         messageProducer.close();
