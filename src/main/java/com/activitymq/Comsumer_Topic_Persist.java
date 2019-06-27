@@ -21,7 +21,7 @@ public class Comsumer_Topic_Persist {
         Connection connection = activeMQConnectionFactory.createConnection();
         connection.setClientID("张4");//新增
 
-        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
         Topic topic = session.createTopic(TOPIC_NAME);
         TopicSubscriber topicSubscriber = session.createDurableSubscriber(topic, "remark..123");
         connection.start();
@@ -30,6 +30,8 @@ public class Comsumer_Topic_Persist {
             TextMessage textMessage = (TextMessage) message;
             System.out.println("*****收到持久化topic：" + textMessage.getText());
             message = topicSubscriber.receive(200000L);
+            //手动签收Session.CLIENT_ACKNOWLEDGE模式，必须要调用acknowledge签收
+            message.acknowledge();
         }
 
         session.close();
