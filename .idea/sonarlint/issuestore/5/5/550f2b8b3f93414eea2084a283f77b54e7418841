@@ -1,9 +1,15 @@
 
-nsquid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(›¿äÅÿÿÿÿÿ8À¸ıÊ·-
-Fsquid:S1148C"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÜÑıÊ·-
-[
-squid:S106A"9Replace this use of System.out or System.err by a logger.(Îã×ûÿÿÿÿ8ÜÑıÊ·-
 nsquid:CommentedOutCodeLine "<This block of commented-out lines of code should be removed.(ş‡ï÷şÿÿÿÿ8³¬Ç·-
-fsquid:S4201>"IRemove this unnecessary null check; "instanceof" returns false for nulls.(Ïøş8ÜÑıÊ·-
+[
+squid:S106C"9Replace this use of System.out or System.err by a logger.(ÕæĞÔÿÿÿÿÿ8Şñé”¹-
 [
 squid:S106"9Replace this use of System.out or System.err by a logger.(¿ãµÚùÿÿÿÿ8ñÍ™È¸-
+[
+squid:S106L"9Replace this use of System.out or System.err by a logger.(Ø‘Åûÿÿÿÿ8ûÎ†•¹-
+fsquid:S4201I"IRemove this unnecessary null check; "instanceof" returns false for nulls.(ö˜ñ.8ûÎ†•¹-
+Fsquid:S1148E"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÜÑıÊ·-
+V
+squid:S106B"9Replace this use of System.out or System.err by a logger.(ÃÄ¬8ÜÑıÊ·-
+fsquid:S4201?"IRemove this unnecessary null check; "instanceof" returns false for nulls.(Ïøş8ÜÑıÊ·-
+nsquid:CommentedOutCodeLine*"<This block of commented-out lines of code should be removed.(›¿äÅÿÿÿÿÿ8À¸ıÊ·-
+Fsquid:S1148N"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ûÎ†•¹-

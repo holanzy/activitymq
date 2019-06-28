@@ -19,9 +19,9 @@ public class Comsumer_Topic_Persist {
 
         ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory(ACTIVEMQ_URL);
         Connection connection = activeMQConnectionFactory.createConnection();
-        connection.setClientID("张4");//新增
+        connection.setClientID("atguigu1");//消费者id,不能重复
 
-        Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         Topic topic = session.createTopic(TOPIC_NAME);
         TopicSubscriber topicSubscriber = session.createDurableSubscriber(topic, "remark..123");
         connection.start();
@@ -29,11 +29,11 @@ public class Comsumer_Topic_Persist {
         while (message != null) {
             TextMessage textMessage = (TextMessage) message;
             System.out.println("*****收到持久化topic：" + textMessage.getText());
-            message = topicSubscriber.receive(200000L);
+            message = topicSubscriber.receive(5000L);
             //手动签收Session.CLIENT_ACKNOWLEDGE模式，必须要调用acknowledge签收
-            message.acknowledge();
+            //message.acknowledge();
         }
-
+        topicSubscriber.close();
         session.close();
         connection.close();
 

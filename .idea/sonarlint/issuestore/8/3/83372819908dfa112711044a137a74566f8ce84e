@@ -1,9 +1,9 @@
 
 O
 squid:S106"9Replace this use of System.out or System.err by a logger.(šÃ»«
+_squid:S4201$"IRemove this unnecessary null check; "instanceof" returns false for nulls.(Ïøþ
 T
 squid:S106'"9Replace this use of System.out or System.err by a logger.(žÎã×ûÿÿÿÿ
+?squid:S1148)"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
 jsquid:S00101
 "MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(‘‹¸¤ýÿÿÿÿ
-_squid:S4201$"IRemove this unnecessary null check; "instanceof" returns false for nulls.(Ïøþ
-?squid:S1148)"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ

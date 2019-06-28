@@ -25,6 +25,7 @@ public class Produce_Topic_Persist {
         connection.start();
         for (int i = 1; i <= 3; i++) {
             TextMessage textMessage = session.createTextMessage("TOPIC_Persist---" + i);
+            //`ltextMessage.setJMSExpiration(10000);
             //8 通过messageProducer发送给mq
             messageProducer.send(textMessage);
         }
